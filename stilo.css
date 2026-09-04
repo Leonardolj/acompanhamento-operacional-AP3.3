@@ -717,3 +717,157 @@ footer {
     }
 
 }
+/* =========================================================
+   STATUS DA PLANILHA
+   ========================================================= */
+
+.sheet-status {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 9999;
+
+    padding: 10px 16px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, .96);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 8px 25px rgba(20, 40, 70, .12);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+}
+
+.sheet-status.online {
+    color: var(--success);
+}
+
+.sheet-status.loading {
+    color: var(--primary);
+}
+
+.sheet-status.offline {
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   FONTE DOS DADOS
+   ========================================================= */
+
+#sheet-source {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 9998;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(23, 63, 115, .08);
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   HOVER DOS CARDS
+   ========================================================= */
+
+.card,
+.system-card,
+.team,
+.vehicle,
+.comparison-item,
+.action {
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.card:hover,
+.system-card:hover,
+.team:hover,
+.vehicle:hover,
+.comparison-item:hover,
+.action:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(20, 40, 70, .08);
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .sheet-status {
+        left: 13px;
+        right: 13px;
+        bottom: 13px;
+
+        text-align: center;
+    }
+
+    #sheet-source {
+        display: none;
+    }
+
+}
+
+/* =========================================================
+   CARD DA PLANILHA
+   ========================================================= */
+
+.card-link {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.card-link:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 12px 30px rgba(23, 63, 115, .12);
+}
+
+.card-link:hover .card-icon {
+    transform: scale(1.08);
+}
+
+.card-link .card-icon {
+    transition: transform .2s ease;
+}
+
+.card-link small {
+    color: var(--primary);
+    font-weight: 600;
+}
