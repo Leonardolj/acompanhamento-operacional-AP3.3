@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicador de Economia de Gás</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px;
+        }
+        /* CABEÇALHO */
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        header p {
+            color: #cbd5e1;
+        }
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+        .card h3 {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .card strong {
+            font-size: 32px;
+        }
+        .card small {
+            display: block;
+            margin-top: 8px;
+            color: #64748b;
+        }
+        .card.economia {
+            background: #16a34a;
+            color: white;
+        }
+        .card.economia h3,
+        .card.economia small {
+            color: #dcfce7;
+        }
+        /* COMPARAÇÃO */
+        .comparacao {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .cenario {
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+        .passado {
+            background: #fff1f2;
+            border: 2px solid #ef4444;
+        }
+        .atual {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+        }
+        .cenario h2 {
+            margin-bottom: 15px;
+        }
+        .passado h2 {
+            color: #b91c1c;
+        }
+        .atual h2 {
+            color: #15803d;
+        }
+        .cenario p {
+            color: #64748b;
+        }
+        .numero {
+            font-size: 55px;
+            font-weight: bold;
+            margin: 15px 0 5px;
+        }
+        .passado .numero {
+            color: #dc2626;
+        }
+        .atual .numero {
+            color: #16a34a;
+        }
+        .calculo {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        /* ECONOMIA */
+        .economia-box {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+        .economia-box h2 {
+            margin-bottom: 15px;
+        }
+        .economia-numero {
+            font-size: 50px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+        .economia-box p {
+            margin-top: 8px;
+            color: #64748b;
+        }
+        /* TABELA */
+        .tabela {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+        .tabela h2 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #f8fafc;
+        }
+        .vermelho {
+            color: #dc2626;
+            font-weight: bold;
+        }
+        .verde {
+            color: #16a34a;
+            font-weight: bold;
+        }
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #64748b;
+            font-size: 13px;
+        }
+        /* CELULAR */
+        @media (max-width: 750px) {
+            .cards,
+            .comparacao {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 12px;
+            }
+            header h1 {
+                font-size: 23px;
+            }
+            .numero {
+                font-size: 45px;
+            }
+            .economia-numero {
+                font-size: 42px;
+            }
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>📊 Indicador de Economia de Gás</h1>
+        <p>
+            Comparativo de consumo das equipes — Passado x Atual
+        </p>
+    </header>
+    <!-- INDICADORES -->
+    <div class="cards">
+        <div class="card">
+            <h3>🔴 CONSUMO PASSADO</h3>
+            <strong>12</strong>
+            <small>
+                botijas por mês
+            </small>
+        </div>
+        <div class="card">
+            <h3>🟢 CONSUMO ATUAL</h3>
+            <strong>6</strong>
+            <small>
+                botijas por mês
+            </small>
+        </div>
+        <div class="card economia">
+            <h3>💰 REDUÇÃO</h3>
+            <strong>50%</strong>
+            <small>
+                de economia no consumo
+            </small>
+        </div>
+    </div>
+    <!-- PASSADO X ATUAL -->
+    <div class="comparacao">
+        <!-- PASSADO -->
+        <div class="cenario passado">
+            <h2>🔴 MAIOR GASTO — PASSADO</h2>
+            <p>
+                Consumo mensal anterior
+            </p>
+            <div class="numero">
+                12
+            </div>
+            <p>
+                botijas por mês
+            </p>
+            <div class="calculo">
+                Consumo anual:
+                <br><br>
+                12 × 12 meses =
+                <strong>144 botijas</strong>
+            </div>
+        </div>
+        <!-- ATUAL -->
+        <div class="cenario atual">
+            <h2>🟢 MENOR GASTO — ATUAL</h2>
+            <p>
+                Novo consumo mensal
+            </p>
+            <div class="numero">
+                6
+            </div>
+            <p>
+                botijas por mês
+            </p>
+            <div class="calculo">
+                Consumo anual:
+                <br><br>
+                6 × 12 meses =
+                <strong>72 botijas</strong>
+            </div>
+        </div>
+    </div>
+    <!-- ECONOMIA -->
+    <div class="economia-box">
+        <h2>📉 ECONOMIA GERADA</h2>
+        <div class="economia-numero">
+            6 botijas/mês
+        </div>
+        <p>
+            Redução de <strong>50%</strong> no consumo mensal
+        </p>
+        <p>
+            Economia de <strong>72 botijas por ano</strong>
+        </p>
+    </div>
+    <!-- TABELA -->
+    <div class="tabela">
+        <h2>📋 Comparativo de Consumo</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Indicador</th>
+                    <th>Passado</th>
+                    <th>Atual</th>
+                    <th>Economia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Botijas por mês</td>
+                    <td class="vermelho">
+                        12
+                    </td>
+                    <td class="verde">
+                        6
+                    </td>
+                    <td class="verde">
+                        6
+                    </td>
+                </tr>
+                <tr>
+                    <td>Botijas por ano</td>
+                    <td class="vermelho">
+                        144
+                    </td>
+                    <td class="verde">
+                        72
+                    </td>
+                    <td class="verde">
+                        72
+                    </td>
+                </tr>
+                <tr>
+                    <td>Redução percentual</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td class="verde">
+                        50%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        Indicador de redução de consumo operacional
+    </footer>
+</div>
+</body>
+</html>
