@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicador de Reparo de Placas</title>
+    <!-- Chart.js para o gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 25px;
+        }
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        header p {
+            color: #cbd5e1;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.07);
+        }
+        .card h3 {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        .card strong {
+            font-size: 27px;
+        }
+        .card.total {
+            background: #16a34a;
+            color: white;
+        }
+        .card.total h3 {
+            color: #dcfce7;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.07);
+        }
+        .box h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,
+        td {
+            padding: 14px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        th {
+            color: #475569;
+            background: #f8fafc;
+        }
+        .formula {
+            margin-top: 20px;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .economia {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #ecfdf5;
+        }
+        .economia h3 {
+            color: #166534;
+            margin-bottom: 8px;
+        }
+        .economia strong {
+            font-size: 25px;
+            color: #15803d;
+        }
+        canvas {
+            width: 100% !important;
+            max-height: 350px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #64748b;
+            font-size: 13px;
+        }
+        @media (max-width: 850px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 500px) {
+            .container {
+                padding: 12px;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>📊 Indicador de Reparo de Placas</h1>
+        <p>
+            Análise de reparos eletrônicos realizada no período de 2 anos
+        </p>
+    </header>
+    <!-- CARDS PRINCIPAIS -->
+    <div class="cards">
+        <div class="card">
+            <h3>PERÍODO</h3>
+            <strong id="periodo">
+                --
+            </strong>
+        </div>
+        <div class="card">
+            <h3>PLACAS REPARADAS</h3>
+            <strong id="placas">
+                --
+            </strong>
+        </div>
+        <div class="card">
+            <h3>VALOR POR REPARO</h3>
+            <strong id="valor">
+                --
+            </strong>
+        </div>
+        <div class="card total">
+            <h3>FATURAMENTO TOTAL</h3>
+            <strong id="total">
+                --
+            </strong>
+        </div>
+    </div>
+    <!-- CONTEÚDO -->
+    <div class="grid">
+        <!-- TABELA -->
+        <div class="box">
+            <h2>📋 Resumo do Indicador</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total de placas</td>
+                        <td id="totalPlacas">--</td>
+                    </tr>
+                    <tr>
+                        <td>Valor por reparo</td>
+                        <td id="valorReparo">--</td>
+                    </tr>
+                    <tr>
+                        <td>Faturamento total</td>
+                        <td id="faturamentoTotal">--</td>
+                    </tr>
+                    <tr>
+                        <td>Média mensal de placas</td>
+                        <td id="mediaPlacasMes">--</td>
+                    </tr>
+                    <tr>
+                        <td>Média mensal faturada</td>
+                        <td id="mediaFaturamentoMes">--</td>
+                    </tr>
+                    <tr>
+                        <td>Média anual de placas</td>
+                        <td id="mediaPlacasAno">--</td>
+                    </tr>
+                    <tr>
+                        <td>Média anual faturada</td>
+                        <td id="mediaFaturamentoAno">--</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="formula">
+                100 placas × R$ 400,00 = R$ 40.000,00
+            </div>
+        </div>
+        <!-- GRÁFICO -->
+        <div class="box">
+            <h2>📈 Evolução do faturamento</h2>
+            <canvas id="graficoReparos"></canvas>
+        </div>
+    </div>
+    <!-- ECONOMIA -->
+    <div class="box" style="margin-top:25px;">
+        <h2>💰 Indicador de Economia</h2>
+        <p>
+            Comparação entre o custo do reparo e a compra de uma placa nova.
+        </p>
+        <div class="economia">
+            <h3>
+                Economia estimada em 2 anos
+            </h3>
+            <strong id="economia">
+                --
+            </strong>
+            <p style="margin-top:8px;">
+                Economia percentual:
+                <strong id="percentualEconomia">
+                    --
+                </strong>
+            </p>
+        </div>
+    </div>
+    <footer>
+        Indicador de Reparo de Placas Eletrônicas
+    </footer>
+</div>
+<script>
+// ==========================================
+// CONFIGURAÇÕES
+// ==========================================
+const quantidadePlacas = 100;
+const valorPorReparo = 400;
+const periodoMeses = 24;
+// Valor hipotético de uma placa nova
+// Altere esse valor se quiser.
+const valorPlacaNova = 1200;
+// ==========================================
+// CÁLCULOS
+// ==========================================
+const faturamentoTotal =
+    quantidadePlacas * valorPorReparo;
+const mediaPlacasMes =
+    quantidadePlacas / periodoMeses;
+const mediaFaturamentoMes =
+    faturamentoTotal / periodoMeses;
+const mediaPlacasAno =
+    quantidadePlacas / 2;
+const mediaFaturamentoAno =
+    faturamentoTotal / 2;
+// ==========================================
+// FORMATAÇÃO
+// ==========================================
+function moeda(valor) {
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style: "currency",
+            currency: "BRL"
+        }
+    );
+}
+// ==========================================
+// PREENCHER DASHBOARD
+// ==========================================
+document.getElementById("periodo").textContent =
+    "2 anos";
+document.getElementById("placas").textContent =
+    quantidadePlacas;
+document.getElementById("valor").textContent =
+    moeda(valorPorReparo);
+document.getElementById("total").textContent =
+    moeda(faturamentoTotal);
+document.getElementById("totalPlacas").textContent =
+    quantidadePlacas + " placas";
+document.getElementById("valorReparo").textContent =
+    moeda(valorPorReparo);
+document.getElementById("faturamentoTotal").textContent =
+    moeda(faturamentoTotal);
+document.getElementById("mediaPlacasMes").textContent =
+    mediaPlacasMes.toFixed(2) + " placas";
+document.getElementById("mediaFaturamentoMes").textContent =
+    moeda(mediaFaturamentoMes);
+document.getElementById("mediaPlacasAno").textContent =
+    mediaPlacasAno.toFixed(0) + " placas";
+document.getElementById("mediaFaturamentoAno").textContent =
+    moeda(mediaFaturamentoAno);
+// ==========================================
+// ECONOMIA
+// ==========================================
+const custoCompra =
+    quantidadePlacas * valorPlacaNova;
+const economia =
+    custoCompra - faturamentoTotal;
+const percentualEconomia =
+    (economia / custoCompra) * 100;
+document.getElementById("economia").textContent =
+    moeda(economia);
+document.getElementById("percentualEconomia").textContent =
+    percentualEconomia.toFixed(1) + "%";
+// ==========================================
+// GRÁFICO
+// ==========================================
+const meses = [];
+const valoresAcumulados = [];
+let acumulado = 0;
+const placasMes =
+    quantidadePlacas / periodoMeses;
+for (let i = 1; i <= periodoMeses; i++) {
+    meses.push("Mês " + i);
+    acumulado +=
+        placasMes * valorPorReparo;
+    valoresAcumulados.push(
+        Number(acumulado.toFixed(2))
+    );
+}
+new Chart(
+    document.getElementById("graficoReparos"),
+    {
+        type: "line",
+        data: {
+            labels: meses,
+            datasets: [
+                {
+                    label: "Faturamento acumulado",
+                    data: valoresAcumulados,
+                    borderWidth: 3,
+                    tension: 0.3,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return moeda(context.raw);
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return moeda(value);
+                        }
+                    }
+                }
+            }
+        }
+    }
+);
+</script>
+</body>
+</html>
