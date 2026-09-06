@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apresentação do Trabalho</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 30px 15px;
+  background: #f3f4f6;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+}
+
+/* CARD PRINCIPAL */
+
+.work-card {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0,0,0,.12);
+}
+
+/* CABEÇALHO */
+
+.work-header {
+  padding: 30px;
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+}
+
+.work-header h1 {
+  margin: 0 0 10px;
+  font-size: 30px;
+}
+
+.work-header p {
+  margin: 0;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+/* DESCRIÇÃO */
+
+.description {
+  padding: 25px 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.description h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.description p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+/* GALERIA */
+
+.gallery-section {
+  padding: 25px 30px 30px;
+}
+
+.gallery-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.gallery-title h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.photo-count {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* GRADE */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+.gallery-item::after {
+  content: "🔍";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.35);
+  color: white;
+  font-size: 25px;
+  opacity: 0;
+  transition: .2s;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  text-align: center;
+}
+
+.modal-image {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* BOTÃO FECHAR */
+
+.close {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* NAVEGAÇÃO */
+
+.nav-button {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.nav-button:hover {
+  background: rgba(255,255,255,.3);
+}
+
+.prev {
+  left: 25px;
+}
+
+.next {
+  right: 25px;
+}
+
+/* CONTADOR DO MODAL */
+
+.modal-counter {
+  margin-top: 12px;
+  color: white;
+  font-size: 14px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 800px) {
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .work-header,
+  .description,
+  .gallery-section {
+    padding: 20px;
+  }
+
+  .work-header h1 {
+    font-size: 24px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+  }
+
+  .nav-button {
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="work-card">
+
+  <!-- CABEÇALHO -->
+
+  <div class="work-header">
+
+    <h1>Projeto realizado</h1>
+
+   
+  </div>
+
+
+  <!-- DESCRIÇÃO -->
+
+  <div class="description">
+
+    <h2>Descrição do serviço realizado</h2>
+
+    <p>
+      Neste projeto realizamos um serviço completo, buscando
+      qualidade, acabamento e atenção aos detalhes.
+      Confira abaixo as fotos do trabalho realizado e veja
+      todos os detalhes do resultado final.
+    </p>
+
+  </div>
+
+
+  <!-- GALERIA -->
+
+  <div class="gallery-section">
+
+    <div class="gallery-title">
+
+      <h2>Galeria de fotos</h2>
+
+      <span class="photo-count">
+        <span id="totalPhotos">0</span> fotos
+      </span>
+
+    </div>
+
+    <div id="gallery" class="gallery"></div>
+
+  </div>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div id="modal" class="modal">
+
+  <span class="close" onclick="closeModal()">×</span>
+
+  <button
+    class="nav-button prev"
+    onclick="previousPhoto()">
+    ‹
+  </button>
+
+  <div class="modal-content">
+
+    <img
+      id="modalImage"
+      class="modal-image"
+      src=""
+      alt="Foto do trabalho">
+
+    <div class="modal-counter">
+      <span id="currentPhoto">1</span>
+      /
+      <span id="modalTotal">0</span>
+    </div>
+
+  </div>
+
+  <button
+    class="nav-button next"
+    onclick="nextPhoto()">
+    ›
+  </button>
+
+</div>
+
+
+<script>
+
+/*
+  COLOQUE AQUI AS FOTOS DO TRABALHO.
+
+  Você pode adicionar até 75 imagens.
+
+  Exemplo:
+  "fotos/foto01.jpg",
+  "fotos/foto02.jpg",
+  "fotos/foto03.jpg"
+*/
+
+const photos = [
+
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.08.02 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.08.02.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.08.03.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.08.03 (2).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.44 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.08.03.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.42.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.42 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.43 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.43 (2).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.43 (3).jpeg",
+
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.43 (4).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.43.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.44 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.44 (2).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.44 (3).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.44 (4).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.44.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.45 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.45 (3).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.45 (4).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.45 (3).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.45.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.46 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.46 (2).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.46 (3).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.09.46.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.02 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.02.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.03 (2).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.03 (3).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.03 (4).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.03.jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.04 (1).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.04 (2).jpeg",
+  "projetos/fotos/WhatsApp Image 2026-09-06 at 10.11.04.jpeg"
+
+
+
+  // Continue até foto75.jpg
+];
+
+
+const gallery = document.getElementById("gallery");
+const totalPhotos = document.getElementById("totalPhotos");
+const modalTotal = document.getElementById("modalTotal");
+
+const modal = document.getElementById("modal");
+const modalImage = document.getElementById("modalImage");
+const currentPhoto = document.getElementById("currentPhoto");
+
+let currentIndex = 0;
+
+
+/* CRIA A GALERIA */
+
+function createGallery() {
+
+  gallery.innerHTML = "";
+
+  photos.forEach((photo, index) => {
+
+    const item = document.createElement("div");
+
+    item.className = "gallery-item";
+
+    const img = document.createElement("img");
+
+    img.src = photo;
+
+    img.alt = "Foto do trabalho " + (index + 1);
+
+    item.appendChild(img);
+
+    item.addEventListener("click", () => {
+      openModal(index);
+    });
+
+    gallery.appendChild(item);
+
+  });
+
+  totalPhotos.textContent = photos.length;
+  modalTotal.textContent = photos.length;
+
+}
+
+
+/* ABRIR FOTO */
+
+function openModal(index) {
+
+  currentIndex = index;
+
+  modal.classList.add("active");
+
+  updateModal();
+
+}
+
+
+/* ATUALIZAR FOTO */
+
+function updateModal() {
+
+  modalImage.src = photos[currentIndex];
+
+  currentPhoto.textContent = currentIndex + 1;
+
+}
+
+
+/* FECHAR */
+
+function closeModal() {
+
+  modal.classList.remove("active");
+
+}
+
+
+/* PRÓXIMA */
+
+function nextPhoto() {
+
+  currentIndex++;
+
+  if (currentIndex >= photos.length) {
+    currentIndex = 0;
+  }
+
+  updateModal();
+
+}
+
+
+/* ANTERIOR */
+
+function previousPhoto() {
+
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = photos.length - 1;
+  }
+
+  updateModal();
+
+}
+
+
+/* FECHAR CLICANDO FORA */
+
+modal.addEventListener("click", function(event) {
+
+  if (event.target === modal) {
+    closeModal();
+  }
+
+});
+
+
+/* TECLADO */
+
+document.addEventListener("keydown", function(event) {
+
+  if (!modal.classList.contains("active")) return;
+
+  if (event.key === "Escape") {
+    closeModal();
+  }
+
+  if (event.key === "ArrowRight") {
+    nextPhoto();
+  }
+
+  if (event.key === "ArrowLeft") {
+    previousPhoto();
+  }
+
+});
+
+
+/* INICIAR */
+
+createGallery();
+
+</script>
+
+</body>
+</html>
