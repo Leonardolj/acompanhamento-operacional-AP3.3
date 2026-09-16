@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeria de Fotos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   PÁGINA
+========================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f1f5f9;
+
+    color: #1e293b;
+
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.galeria-container {
+    width: 92%;
+    max-width: 1400px;
+
+    margin: 40px auto;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.galeria-header {
+    margin-bottom: 30px;
+}
+
+.galeria-header h1 {
+    font-size: 32px;
+
+    color: #0f172a;
+
+    margin-bottom: 8px;
+}
+
+.galeria-header p {
+    color: #64748b;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   GALERIA
+========================= */
+
+.galeria {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.foto {
+    position: relative;
+
+    height: 200px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #e2e8f0;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+.foto img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+
+/* =========================
+   EFEITO HOVER
+========================= */
+
+.foto:hover img {
+    transform: scale(1.08);
+
+    filter: brightness(0.75);
+}
+
+
+/* =========================
+   LEGENDA
+========================= */
+
+.foto figcaption {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 12px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.75)
+        );
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.foto:hover figcaption {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .galeria {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+}
+
+
+/* =========================
+   TABLET PEQUENO
+========================= */
+
+@media (max-width: 800px) {
+
+    .galeria {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .foto {
+        height: 180px;
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .galeria-container {
+        width: 94%;
+
+        margin: 25px auto;
+    }
+
+    .galeria-header h1 {
+        font-size: 26px;
+    }
+
+    .galeria {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .foto {
+        height: 150px;
+
+        border-radius: 9px;
+    }
+
+    .foto figcaption {
+        opacity: 1;
+
+        transform: translateY(0);
+
+        padding: 8px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================
+   CELULAR PEQUENO
+========================= */
+
+@media (max-width: 380px) {
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .foto {
+        height: 220px;
+    }
+
+}
+
+</style>
+
+<body>
+
+   <section class="galeria">
+
+    <figure class="foto">
+        <a href="fotosundd/acolhimento.jpeg" target="_blank">
+            <img src="fotosundd/acolhimento.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5993 - Acolhimento 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/administração.jpeg" target="_blank">
+            <img src="fotosundd/administração.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1160 - Administração</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosunddalmoxarifado.jpeg" target="_blank">
+            <img src="fotosundd/almoxarifado.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 6170 - Almoxarifica</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/chapadinho.jpeg" target="_blank">
+            <img src="fotosundd/chapadinho.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1183 - Chapadinho</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/comendador guerra.jpeg" target="_blank">
+            <img src="fotosundd/comendador guerra.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1184 - Comendador </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/copa.jpeg" target="_blank">
+            <img src="fotosundd/copa.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1163 - copa</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/curativos.jpeg" target="_blank">
+            <img src="fotosundd/curativos.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1177 - Curativos</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/equipe crisostomo.jpeg" target="_blank">
+            <img src="fotosundd/equipe crisostomo.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1186 - crísostomo pimentel</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/equipe fonseca.jpeg" target="_blank">
+            <img src="fotosundd/equipe fonseca.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1188 - Equipe fonseca</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/equipe village.jpeg" target="_blank">
+            <img src="fotosundd/equipe village.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1187 - Equipe village</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/esterilização.jpeg" target="_blank">
+            <img src="fotosundd/esterilização.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5421 - esterilização</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/estoque da farmacia.jpeg" target="_blank">
+            <img src="fotosundd/estoque da farmacia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 6021 - Estoque da fármacia</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/estoque.jpeg" target="_blank">
+            <img src="fotosundd/estoque.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: Estoque</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/exames laboratoriais.jpeg" target="_blank">
+            <img src="fotosundd/exames laboratoriais.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1161 - Exames laboratóriais</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/imunização.jpeg" target="_blank">
+            <img src="fotosundd/imunização.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 4780 - imúnização</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/observação.jpeg" target="_blank">
+            <img src="fotosundd/observação.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5460 - Observação clinica</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/procedimentos.jpeg" target="_blank">
+            <img src="fotosundd/procedimentos.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1174 - Procedimentos</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/raio-x.jpeg" target="_blank">
+            <img src="fotosundd/raio-x.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1172 - Raio-x</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/recepção acolhimento.jpeg" target="_blank">
+            <img src="fotosundd/recepção acolhimento.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5427 - Acolhimento</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/recepção do farmaceutico.jpeg" target="_blank">
+            <img src="fotosundd/recepção do farmaceutico.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1181 - recepção da farmaceutico</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/recpção da farmacia.jpeg" target="_blank">
+            <img src="fotosundd/recpção da farmacia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1182 - recepção da farmacia</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/sala de reunião.jpeg" target="_blank">
+            <img src="fotosundd/sala de reunião.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1166 - sala de reunião</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/sala dos agentes.jpeg" target="_blank">
+            <img src="fotosundd/sala dos agentes.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1162 - sala de reunião</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/saude bucal.jpeg" target="_blank">
+            <img src="fotosundd/saude bucal.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: sem - saúde bucal </figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="fotosundd/saude bucal2.jpeg.jpeg" target="_blank">
+            <img src="fotosundd/saude bucal.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: sem - saúde bucal 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="fotosundd/saude da criança.jpeg" target="_blank">
+            <img src="fotosundd/saude da criança.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 6025 - saúde da criança</figcaption>
+    </figure>
+
+</section>
+
+</body>
+</html>
