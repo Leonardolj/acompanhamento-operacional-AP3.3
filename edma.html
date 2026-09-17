@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Galeria de Fotos</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+    RESET
+    ========================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =========================
+    PÁGINA
+    ========================= */
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+
+        background: #f1f5f9;
+
+        color: #1e293b;
+
+        min-height: 100vh;
+    }
+
+
+    /* =========================
+    CONTAINER
+    ========================= */
+
+    .galeria-container {
+        width: 92%;
+        max-width: 1400px;
+
+        margin: 40px auto;
+    }
+
+    /* =========================
+    CABEÇALHO
+    ========================= */
+
+    .galeria-header {
+        margin-bottom: 30px;
+    }
+
+    .galeria-header h1 {
+        font-size: 32px;
+
+        color: #0f172a;
+
+        margin-bottom: 8px;
+    }
+
+    .galeria-header p {
+        color: #64748b;
+
+        font-size: 16px;
+    }
+
+
+    /* =========================
+    GALERIA
+    ========================= */
+
+    .galeria {
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* =========================
+    FOTO
+    ========================= */
+
+    .foto {
+        position: relative;
+
+        height: 200px;
+
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        background: #e2e8f0;
+
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.08);
+
+        cursor: pointer;
+    }
+
+
+    /* =========================
+    IMAGEM
+    ========================= */
+
+    .foto img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+
+    /* =========================
+    EFEITO HOVER
+    ========================= */
+
+    .foto:hover img {
+        transform: scale(1.08);
+
+        filter: brightness(0.75);
+    }
+
+
+    /* =========================
+    LEGENDA
+    ========================= */
+
+    .foto figcaption {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .foto:hover figcaption {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    /* =========================
+    TABLET
+    ========================= */
+
+    @media (max-width: 1100px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(4, 1fr);
+        }
+
+    }
+
+
+    /* =========================
+    TABLET PEQUENO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .foto {
+            height: 180px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .galeria-container {
+            width: 94%;
+
+            margin: 25px auto;
+        }
+
+        .galeria-header h1 {
+            font-size: 26px;
+        }
+
+        .galeria {
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .foto {
+            height: 150px;
+
+            border-radius: 9px;
+        }
+
+        .foto figcaption {
+            opacity: 1;
+
+            transform: translateY(0);
+
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR PEQUENO
+    ========================= */
+
+    @media (max-width: 380px) {
+
+        .galeria {
+            grid-template-columns: 1fr;
+        }
+
+        .foto {
+            height: 220px;
+        }
+
+    }
+
+    </style>
+</head>
+
+<body>
+
+   <section class="galeria">
+
+    <figure class="foto">
+        <a href="edma/acolhimento 1128.jpeg" target="_blank">
+            <img src="edma/acolhimento 1128.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1128 - Acolhimento </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/acolhimento recepção 1127.jpeg" target="_blank">
+            <img src="edma/acolhimento recepção 1127.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1127 - recepção</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/administração 1119.jpeg" target="_blank">
+            <img src="edma/administração 1119.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1119 - administração</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/almoxarifado 1130.jpeg" target="_blank">
+            <img src="edma/almoxarifado 1130.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1130 - almoxarifado</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/copa 1129.jpeg" target="_blank">
+            <img src="edma/copa 1129.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1129 - Copa </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/equipe amarelinho 3124.jpeg" target="_blank">
+            <img src="edma/equipe amarelinho 3124.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode:3124 equipe amarelhino </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/equipe fim do mundo 1141.jpeg" target="_blank">
+            <img src="edma/equipe fim do mundo 1141.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1141 - equipe fim do mundo</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/equipe principal 1123.jpeg" target="_blank">
+            <img src="edma/equipe principal 1123.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1123 - equipe principal</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/equipe progetada 1146.jpeg" target="_blank">
+            <img src="edma/equipe progetada 1146.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1146 - Equipe projetada - condenada</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/equipe vila esperança 1143.jpeg" target="_blank">
+            <img src="edma/equipe vila esperança 1143.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1143 - Equipe vila esperança</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/equipe vila rica 1140.jpeg" target="_blank">
+            <img src="edma/equipe vila rica 1140.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1140 - equipe vila rica</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/exames laboratoriais 1126.jpeg" target="_blank">
+            <img src="edma/exames laboratoriais 1126.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1126 - exames laboratoriais</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/farmacia 1112.jpeg" target="_blank">
+            <img src="edma/farmacia 1112.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode:1112 - farmácia</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/farmacia deposito 1116.jpeg" target="_blank">
+            <img src="edma/farmacia deposito 1116.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1116 - farmácia deposito</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/imunização 1111.jpeg" target="_blank">
+            <img src="edma/imunização 1111.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1111 - imúnização</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/mae-bebe 1142.jpeg" target="_blank">
+            <img src="edma/mae-bebe 1142.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1142 - mae-bebê</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/observação 1136.jpeg" target="_blank">
+            <img src="edma/observação 1136.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1136 - observação</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/procedimentos 5559.jpeg" target="_blank">
+            <img src="edma/procedimentos 5559.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5559 - procedimentos</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/raio-x 1113.jpeg" target="_blank">
+            <img src="edma/raio-x 1113.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1113 - raio-x</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/sala de reunião 1120.jpeg" target="_blank">
+            <img src="edma/sala de reunião 1120.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1120 - sala de reunião</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/sala dos acs 01- 1134.jpeg" target="_blank">
+            <img src="edma/sala dos acs 01- 1134.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1134 - sala dos acs -01</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/sala dos acs 02 - 1135.jpeg" target="_blank">
+            <img src="edma/sala dos acs 02 - 1135.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1166 - sala dos acs -02</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/saude bucal - 01- 1115.jpeg" target="_blank">
+            <img src="edma/saude bucal - 01- 1115.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1115 - saúde bucal. -01</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/saude bucal 02 - sem qr.jpeg" target="_blank">
+            <img src="edma/saude bucal 02 - sem qr.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: sem - saúde bucal -02 </figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="edma/saude da mulher 1140.jpeg" target="_blank">
+            <img src="edma/saude da mulher 1140.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1140 - saúde da mulher</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="edma/ultrassonografia 1139.jpeg" target="_blank">
+            <img src="edma/ultrassonografia 1139.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1139 - ultrassonografia</figcaption>
+    </figure>
+
+</section>
+
+</body>
+</html>
