@@ -2,273 +2,273 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Galeria de Fotos</title>
+        <title>Galeria de Fotos</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<style>
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+    RESET
+    ========================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
     /* =========================
-   RESET
-========================= */
+    PÁGINA
+    ========================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    body {
+        font-family: Arial, Helvetica, sans-serif;
 
+        background: #f1f5f9;
 
-/* =========================
-   PÁGINA
-========================= */
+        color: #1e293b;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    background: #f1f5f9;
-
-    color: #1e293b;
-
-    min-height: 100vh;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
-
-.galeria-container {
-    width: 92%;
-    max-width: 1400px;
-
-    margin: 40px auto;
-}
-
-
-/* =========================
-   CABEÇALHO
-========================= */
-
-.galeria-header {
-    margin-bottom: 30px;
-}
-
-.galeria-header h1 {
-    font-size: 32px;
-
-    color: #0f172a;
-
-    margin-bottom: 8px;
-}
-
-.galeria-header p {
-    color: #64748b;
-
-    font-size: 16px;
-}
-
-
-/* =========================
-   GALERIA
-========================= */
-
-.galeria {
-    display: grid;
-
-    grid-template-columns:
-        repeat(5, 1fr);
-
-    gap: 18px;
-}
-
-
-/* =========================
-   FOTO
-========================= */
-
-.foto {
-    position: relative;
-
-    height: 200px;
-
-    overflow: hidden;
-
-    border-radius: 12px;
-
-    background: #e2e8f0;
-
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.08);
-
-    cursor: pointer;
-}
-
-
-/* =========================
-   IMAGEM
-========================= */
-
-.foto img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.4s ease,
-        filter 0.4s ease;
-}
-
-
-/* =========================
-   EFEITO HOVER
-========================= */
-
-.foto:hover img {
-    transform: scale(1.08);
-
-    filter: brightness(0.75);
-}
-
-
-/* =========================
-   LEGENDA
-========================= */
-
-.foto figcaption {
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-
-    padding: 12px;
-
-    color: white;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0, 0, 0, 0.75)
-        );
-
-    opacity: 0;
-
-    transform: translateY(10px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-}
-
-.foto:hover figcaption {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1100px) {
-
-    .galeria {
-        grid-template-columns:
-            repeat(4, 1fr);
+        min-height: 100vh;
     }
 
-}
 
-
-/* =========================
-   TABLET PEQUENO
-========================= */
-
-@media (max-width: 800px) {
-
-    .galeria {
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-    .foto {
-        height: 180px;
-    }
-
-}
-
-
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 600px) {
+    /* =========================
+    CONTAINER
+    ========================= */
 
     .galeria-container {
-        width: 94%;
+        width: 92%;
+        max-width: 1400px;
 
-        margin: 25px auto;
+        margin: 40px auto;
+    }
+
+    /* =========================
+    CABEÇALHO
+    ========================= */
+
+    .galeria-header {
+        margin-bottom: 30px;
     }
 
     .galeria-header h1 {
-        font-size: 26px;
+        font-size: 32px;
+
+        color: #0f172a;
+
+        margin-bottom: 8px;
     }
+
+    .galeria-header p {
+        color: #64748b;
+
+        font-size: 16px;
+    }
+
+
+    /* =========================
+    GALERIA
+    ========================= */
 
     .galeria {
-        grid-template-columns:
-            repeat(2, 1fr);
+        display: grid;
 
-        gap: 12px;
+        grid-template-columns:
+            repeat(5, 1fr);
+
+        gap: 18px;
     }
+
+
+    /* =========================
+    FOTO
+    ========================= */
 
     .foto {
-        height: 150px;
+        position: relative;
 
-        border-radius: 9px;
+        height: 200px;
+
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        background: #e2e8f0;
+
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.08);
+
+        cursor: pointer;
     }
 
+
+    /* =========================
+    IMAGEM
+    ========================= */
+
+    .foto img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+
+    /* =========================
+    EFEITO HOVER
+    ========================= */
+
+    .foto:hover img {
+        transform: scale(1.08);
+
+        filter: brightness(0.75);
+    }
+
+
+    /* =========================
+    LEGENDA
+    ========================= */
+
     .foto figcaption {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .foto:hover figcaption {
         opacity: 1;
 
         transform: translateY(0);
-
-        padding: 8px;
-
-        font-size: 12px;
     }
 
-}
 
+    /* =========================
+    TABLET
+    ========================= */
 
-/* =========================
-   CELULAR PEQUENO
-========================= */
+    @media (max-width: 1100px) {
 
-@media (max-width: 380px) {
+        .galeria {
+            grid-template-columns:
+                repeat(4, 1fr);
+        }
 
-    .galeria {
-        grid-template-columns: 1fr;
     }
 
-    .foto {
-        height: 220px;
+
+    /* =========================
+    TABLET PEQUENO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .foto {
+            height: 180px;
+        }
+
     }
 
-}
 
-</style>
+    /* =========================
+    CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .galeria-container {
+            width: 94%;
+
+            margin: 25px auto;
+        }
+
+        .galeria-header h1 {
+            font-size: 26px;
+        }
+
+        .galeria {
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .foto {
+            height: 150px;
+
+            border-radius: 9px;
+        }
+
+        .foto figcaption {
+            opacity: 1;
+
+            transform: translateY(0);
+
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR PEQUENO
+    ========================= */
+
+    @media (max-width: 380px) {
+
+        .galeria {
+            grid-template-columns: 1fr;
+        }
+
+        .foto {
+            height: 220px;
+        }
+
+    }
+
+    </style>
+</head>
 
 <body>
 
