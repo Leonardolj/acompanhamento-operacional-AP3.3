@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Galeria de Fotos</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+    RESET
+    ========================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =========================
+    PÁGINA
+    ========================= */
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+
+        background: #f1f5f9;
+
+        color: #1e293b;
+
+        min-height: 100vh;
+    }
+
+
+    /* =========================
+    CONTAINER
+    ========================= */
+
+    .galeria-container {
+        width: 92%;
+        max-width: 1400px;
+
+        margin: 40px auto;
+    }
+
+    /* =========================
+    CABEÇALHO
+    ========================= */
+
+    .galeria-header {
+        margin-bottom: 30px;
+    }
+
+    .galeria-header h1 {
+        font-size: 32px;
+
+        color: #0f172a;
+
+        margin-bottom: 8px;
+    }
+
+    .galeria-header p {
+        color: #64748b;
+
+        font-size: 16px;
+    }
+
+
+    /* =========================
+    GALERIA
+    ========================= */
+
+    .galeria {
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* =========================
+    FOTO
+    ========================= */
+
+    .foto {
+        position: relative;
+
+        height: 200px;
+
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        background: #e2e8f0;
+
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.08);
+
+        cursor: pointer;
+    }
+
+
+    /* =========================
+    IMAGEM
+    ========================= */
+
+    .foto img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+
+    /* =========================
+    EFEITO HOVER
+    ========================= */
+
+    .foto:hover img {
+        transform: scale(1.08);
+
+        filter: brightness(0.75);
+    }
+
+
+    /* =========================
+    LEGENDA
+    ========================= */
+
+    .foto figcaption {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .foto:hover figcaption {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    /* =========================
+    TABLET
+    ========================= */
+
+    @media (max-width: 1100px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(4, 1fr);
+        }
+
+    }
+
+
+    /* =========================
+    TABLET PEQUENO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .foto {
+            height: 180px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .galeria-container {
+            width: 94%;
+
+            margin: 25px auto;
+        }
+
+        .galeria-header h1 {
+            font-size: 26px;
+        }
+
+        .galeria {
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .foto {
+            height: 150px;
+
+            border-radius: 9px;
+        }
+
+        .foto figcaption {
+            opacity: 1;
+
+            transform: translateY(0);
+
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR PEQUENO
+    ========================= */
+
+    @media (max-width: 380px) {
+
+        .galeria {
+            grid-template-columns: 1fr;
+        }
+
+        .foto {
+            height: 220px;
+        }
+
+    }
+
+    </style>
+</head>
+
+<body>
+
+   <section class="galeria">
+
+    <figure class="foto">
+        <a href="manoel/sala de reunião 1 - 1184.jpeg sala de reunião 1 - 1184.jpeg" target="_blank">
+            <img src="manoel/sala de reunião 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1184 - sala de reunião</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/1187 equipe acataia.jpeg" target="_blank">
+            <img src="manoel/1187 equipe acataia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1187 - equipe acataia</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/1295 equipe gênesis.jpeg" target="_blank">
+            <img src="manoel/1295 equipe gênesis.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1295 - equipe gênesis</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/1296 equipe araguantins.jpeg" target="_blank">
+            <img src="manoel/1296 equipe araguantins.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1296 - equipe araguantins</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/1311 equipe xavier.jpeg" target="_blank">
+            <img src="manoel/1311 equipe xavier.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1311 - equipe xavier</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/acolhimento 1 -1285.jpeg" target="_blank">
+            <img src="manoel/acolhimento 1 -1285.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1285- acolhimento 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/acolhimento 2- 5936.jpeg" target="_blank">
+            <img src="manoel/acolhimento 2- 5936.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5936 - acolhimento 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/acolhimento 3 1286.jpeg" target="_blank">
+            <img src="manoel/acolhimento 3 1286.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1286 - acolhimento 3</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/administração 1 - 1312.jpeg" target="_blank">
+            <img src="manoel/administração 1 - 1312.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1188 - administração 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/administração 2 - 1313.jpeg" target="_blank">
+            <img src="manoel/administração 2 - 1313.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1313 - admministração 2 </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/cci 000.jpeg" target="_blank">
+            <img src="manoel/cci 000.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: sem qr- centro de convivencia do idoso 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/cci 1 - 6011.jpeg" target="_blank">
+            <img src="manoel/cci 1 - 6011.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 6011 - centro de convivencia do idoso 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/cci 2 - 1299.jpeg" target="_blank">
+            <img src="manoel/cci 2 - 1299.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1299 - centro de convivencia do idoso 3</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/cci- 1297.jpeg" target="_blank">
+            <img src="manoel/cci- 1297.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1297 - centro de convivencia do idoso 4</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/centro de convivencia 1 - 5978.jpeg" target="_blank">
+            <img src="manoel/centro de convivencia 1 - 5978.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5978 - auditório  1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/centro de convivencia 3- 5841 .jpeg de convivencia 1 - 5978.jpeg" target="_blank">
+            <img src="fotosundd/observação.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5841 - auditório 2 </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/cci- 1297.jpeg" target="_blank">
+            <img src="manoel/cci- 1297.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1297 - auditório 3 </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/copa 2 qrcode 4512.jpeg" target="_blank">
+            <img src="manoel/copa 2 qrcode 4512.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 4512 _ copa 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/copa 5993.jpeg 2 qrcode 4512.jpeg" target="_blank">
+            <img src="manoel/copa 5993.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5993 - copa 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/corredor acatai - 5281.jpeg" target="_blank">
+            <img src="manoel/corredor acatai - 5281.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5281 - corredor acatai</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/corredor cci - 1289.jpeg" target="_blank">
+            <img src="manoel/corredor cci - 1289.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1289 - corredor do cci</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/corredor da sala de reunião 1328.jpeg" target="_blank">
+            <img src="manoel/corredor da sala de reunião 1328.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1328 - corredor da sala de reunião</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/corredor da saúde bucal - 5025.jpeg" target="_blank">
+            <img src="manoel/corredor da saúde bucal - 5025.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5025 - corredor da saúde bucal</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/corredor do almoxarificado 1290.jpeg" target="_blank">
+            <img src="manoel/corredor do almoxarificado 1290.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1290 - corredor do almoxarifado </figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor do cci 1289.jpeg" target="_blank">
+            <img src="manoel/corredor do cci 1289.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1289 - corredor do cci</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/corredor do curativo 1323 - condenado.jpeg" target="_blank">
+            <img src="manoel/corredor do curativo 1323 - condenado.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption style="color: red;">qrcode: 1323 - corredor do curativo - condenado</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor do dml 1329.jpeg" target="_blank">
+            <img src="manoel/corredor do dml 1329.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1329 - corredor do DML</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor do vestiário masculino 1327.jpeg" target="_blank">
+            <img src="manoel/corredor do vestiário masculino 1327.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1327 - corredor do vestiário masculino</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor exames laboratoriais - 5024.jpeg" target="_blank">
+            <img src="manoel/corredor exames laboratoriais - 5024.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5024 - corredor exames laboratóriais</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor observação clinica 1302.jpeg" target="_blank">
+            <img src="manoel/corredor observação clinica 1302.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1302 - corredor da observação clinica</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor procedimentos 1324.jpeg" target="_blank">
+            <img src="manoel/corredor procedimentos 1324.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1324 - corredor do procedimentos</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/corredor sala dos agentes 3612.jpeg" target="_blank">
+            <img src="manoel/corredor sala dos agentes 3612.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 3612 - corredor sala dos agentes</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/equipe cova da onça - sem QR.jpeg" target="_blank">
+            <img src="manoel/equipe cova da onça - sem QR.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: sem qr - equipe cova da onça</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="manoel/equipe javata 1279.jpeg" target="_blank">
+            <img src="manoel/equipe javata 1279.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1279 - equipe javata</figcaption>
+
+    </figure>
+
+    <figure class="foto">
+        <a href="manoel/equipe lenir liberato 1326.jpeg" target="_blank">
+            <img src="manoel/equipe lenir liberato 1326.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1326 - lenir liberato</figcaption>
+    </figure>
+    
+    <figure class="foto">
+        <a href="manoel/equipe lenir liberato 1326.jpeg" target="_blank">
+            <img src="manoel/equipe lenir liberato 1326.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1326 - equipe lenir liberato</figcaption>
+    </figure>
+    
+     <figure class="foto">
+        <a href="manoel/exames laboratorias - sem qr.jpeg" target="_blank">
+            <img src="manoel/exames laboratorias - sem qr.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: sem qr - exames laboratóriais</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/farmácia 1303.jpeg" target="_blank">
+            <img src="manoel/farmácia 1303.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1303 - farmácia</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/farmácia depósito 1325.jpeg" target="_blank">
+            <img src="manoel/farmácia depósito 1325.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1325 - depósito da farmácia</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/frigobar - observação clínica.jpeg" target="_blank">
+            <img src="manoel/corredor acatai - 5281.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: frigobar da observação clinica</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/frigobar saúde bucal.jpeg" target="_blank">
+            <img src="manoel/frigobar saúde bucal.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: frigobar da saúde bucal</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/geladeira da copa 2.jpeg" target="_blank">
+            <img src="manoel/geladeira da copa.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: geladeira da copa</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/observação clínica 5969.jpeg" target="_blank">
+            <img src="manoel/observação clínica 5969.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5969 - observação clinica</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/raiox 1306 .jpeg" target="_blank">
+            <img src="manoel/raiox 1306 .jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1306 - raio-x</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/sala da emult  1292.jpeg" target="_blank">
+            <img src="manoel/sala da emult  1292.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1292 - sala emult</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/sala de reunião 1.jpeg" target="_blank">
+            <img src="manoel/sala de reunião 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: xxxx - sala de reunião 1</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/sala dos agentes 1280.jpeg" target="_blank">
+            <img src="manoel/sala dos agentes 1280.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1280 - sala dos agentes</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/saúde bucal 2 -  1317.jpeg" target="_blank">
+            <img src="manoel/saúde bucal 2 -  1317.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1317 - saúde bucal 1</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/saúde bucal 3 - 5800.jpeg" target="_blank">
+            <img src="manoel/saúde bucal 3 - 5800.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5800 - saúde bucal 3</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/saúde bucal 4 - 5718.jpeg" target="_blank">
+            <img src="manoel/saúde bucal 4 - 5718.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 5718 - saude bucal 4</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/saúde buscal 1 - 1281.jpeg" target="_blank">
+            <img src="manoel/saúde buscal 1 - 1281.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1281 - saude bucal 1</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="manoel/soft copa .jpeg" target="_blank">
+            <img src="manoel/corredor acatai - 5281.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: soft da copa</figcaption>
+    </figure>
+
+     
+
+</section>
+
+</body>
+</html>
