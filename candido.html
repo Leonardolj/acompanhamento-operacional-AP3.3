@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Galeria de Fotos</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+    RESET
+    ========================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =========================
+    PÁGINA
+    ========================= */
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+
+        background: #f1f5f9;
+
+        color: #1e293b;
+
+        min-height: 100vh;
+    }
+
+
+    /* =========================
+    CONTAINER
+    ========================= */
+
+    .galeria-container {
+        width: 92%;
+        max-width: 1400px;
+
+        margin: 40px auto;
+    }
+
+    /* =========================
+    CABEÇALHO
+    ========================= */
+
+    .galeria-header {
+        margin-bottom: 30px;
+    }
+
+    .galeria-header h1 {
+        font-size: 32px;
+
+        color: #0f172a;
+
+        margin-bottom: 8px;
+    }
+
+    .galeria-header p {
+        color: #64748b;
+
+        font-size: 16px;
+    }
+
+
+    /* =========================
+    GALERIA
+    ========================= */
+
+    .galeria {
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* =========================
+    FOTO
+    ========================= */
+
+    .foto {
+        position: relative;
+
+        height: 200px;
+
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        background: #e2e8f0;
+
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.08);
+
+        cursor: pointer;
+    }
+
+
+    /* =========================
+    IMAGEM
+    ========================= */
+
+    .foto img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+
+    /* =========================
+    EFEITO HOVER
+    ========================= */
+
+    .foto:hover img {
+        transform: scale(1.08);
+
+        filter: brightness(0.75);
+    }
+
+
+    /* =========================
+    LEGENDA
+    ========================= */
+
+    .foto figcaption {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .foto:hover figcaption {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    /* =========================
+    TABLET
+    ========================= */
+
+    @media (max-width: 1100px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(4, 1fr);
+        }
+
+    }
+
+
+    /* =========================
+    TABLET PEQUENO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .foto {
+            height: 180px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .galeria-container {
+            width: 94%;
+
+            margin: 25px auto;
+        }
+
+        .galeria-header h1 {
+            font-size: 26px;
+        }
+
+        .galeria {
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .foto {
+            height: 150px;
+
+            border-radius: 9px;
+        }
+
+        .foto figcaption {
+            opacity: 1;
+
+            transform: translateY(0);
+
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR PEQUENO
+    ========================= */
+
+    @media (max-width: 380px) {
+
+        .galeria {
+            grid-template-columns: 1fr;
+        }
+
+        .foto {
+            height: 220px;
+        }
+
+    }
+
+    </style>
+</head>
+
+<body>
+
+   <section class="galeria">
+
+    <figure class="foto">
+        <a href="candido/acolhimento 0979.jpeg" target="_blank">
+            <img src="candido/acolhimento 0979.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0979 - acolhimento</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/acolhimento recepção 0980.jpeg" target="_blank">
+            <img src="candido/acolhimento recepção 0980.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0980 - acolhimento recepção</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/administração 0957.jpeg" target="_blank">
+            <img src="candido/administração 0957.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0957 - administração</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/capitão cruz 0973.jpeg" target="_blank">
+            <img src="candido/capitão cruz 0973.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0973 - capitão cruz</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/consultorio 0976.jpeg" target="_blank">
+            <img src="candido/consultorio 0976.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0976 - consultório</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/copa 0955.jpeg" target="_blank">
+            <img src="candido/copa 0955.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0955 - copa</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/curativos 0952.jpeg" target="_blank">
+            <img src="candido/curativos 0952.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0952 - curativos</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/dml endemias 0972.jpeg" target="_blank">
+            <img src="candido/dml endemias 0972.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0972 - DML endemias</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/emilio miranda 0971.jpeg" target="_blank">
+            <img src="candido/emilio miranda 0971.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0971 - emilio miranda</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/equipe maues 0966.jpeg" target="_blank">
+            <img src="candido/equipe maues 0966.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0966 - equipe maués</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/esterilização 0956.jpeg" target="_blank">
+            <img src="candido/esterilização 0956.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0956 - esterilização</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/exames laboratoriais 3166.jpeg" target="_blank">
+            <img src="candido/exames laboratoriais 3166.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 3166 - exames laboratoriais</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/farmacia 0960.jpeg" target="_blank">
+            <img src="candido/farmacia 0960.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0960 - farmácia</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/farmacia deposito 0961.jpeg" target="_blank">
+            <img src="candido/farmacia deposito 0961.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0961 - farmácia depósito</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/gerencia 0963.jpeg" target="_blank">
+            <img src="candido/gerencia 0963.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0963 - gerência</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/hipertensão e diabetes 0970 -condenado.jpeg" target="_blank">
+            <img src="candido/hipertensão e diabetes 0970 -condenado.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption style="color: red;">qrcode: 0970 - hipertensão e diabetes - condenado</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/imunização 3165.jpeg" target="_blank">
+            <img src="candido/imunização 3165.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 3165 - imunização </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/observação clinica 1- 0958.jpeg" target="_blank">
+            <img src="candido/observação clinica 1- 0958.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0958 - observação clinica 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/observação clinica 2 - 0959.jpeg" target="_blank">
+            <img src="candido/observação clinica 2 - 0959.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0959 - observação clinica 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/procedimento 2º andar 0974.jpeg" target="_blank">
+            <img src="candido/procedimento 2º andar 0974.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0974 - procedimentos</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/raio-x.jpeg" target="_blank">
+            <img src="candido/raio-x.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: xxxx - raio-x</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/sala dos agentes 0954.jpeg" target="_blank">
+            <img src="candido/sala dos agentes 0954.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 0954 - sala dos agentes</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/saude bucal 1 - 3163.jpeg" target="_blank">
+            <img src="candido/saude bucal 1 - 3163.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 3163 - saúde bucal 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="candido/saude bucal 2 - 3164.jpeg" target="_blank">
+            <img src="candido/saude bucal 2 - 3164.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 3164 - saúde bucal 2 </figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="candido/ultrassonagrafia.jpeg" target="_blank">
+            <img src="candido/ultrassonagrafia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: xxxx - ultrassonografia</figcaption>
+    </figure>
+
+   
+</section>
+
+</body>
+</html>
