@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Galeria de Fotos</title>
+
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+    RESET
+    ========================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =========================
+    PÁGINA
+    ========================= */
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+
+        background: #f1f5f9;
+
+        color: #1e293b;
+
+        min-height: 100vh;
+    }
+
+
+    /* =========================
+    CONTAINER
+    ========================= */
+
+    .galeria-container {
+        width: 92%;
+        max-width: 1400px;
+
+        margin: 40px auto;
+    }
+
+    /* =========================
+    CABEÇALHO
+    ========================= */
+
+    .galeria-header {
+        margin-bottom: 30px;
+    }
+
+    .galeria-header h1 {
+        font-size: 32px;
+
+        color: #0f172a;
+
+        margin-bottom: 8px;
+    }
+
+    .galeria-header p {
+        color: #64748b;
+
+        font-size: 16px;
+    }
+
+
+    /* =========================
+    GALERIA
+    ========================= */
+
+    .galeria {
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* =========================
+    FOTO
+    ========================= */
+
+    .foto {
+        position: relative;
+
+        height: 200px;
+
+        overflow: hidden;
+
+        border-radius: 12px;
+
+        background: #e2e8f0;
+
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.08);
+
+        cursor: pointer;
+    }
+
+
+    /* =========================
+    IMAGEM
+    ========================= */
+
+    .foto img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform 0.4s ease,
+            filter 0.4s ease;
+    }
+
+
+    /* =========================
+    EFEITO HOVER
+    ========================= */
+
+    .foto:hover img {
+        transform: scale(1.08);
+
+        filter: brightness(0.75);
+    }
+
+
+    /* =========================
+    LEGENDA
+    ========================= */
+
+    .foto figcaption {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: 12px;
+
+        color: white;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        background:
+            linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
+
+        opacity: 0;
+
+        transform: translateY(10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .foto:hover figcaption {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    /* =========================
+    TABLET
+    ========================= */
+
+    @media (max-width: 1100px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(4, 1fr);
+        }
+
+    }
+
+
+    /* =========================
+    TABLET PEQUENO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .galeria {
+            grid-template-columns:
+                repeat(3, 1fr);
+        }
+
+        .foto {
+            height: 180px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+        .galeria-container {
+            width: 94%;
+
+            margin: 25px auto;
+        }
+
+        .galeria-header h1 {
+            font-size: 26px;
+        }
+
+        .galeria {
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .foto {
+            height: 150px;
+
+            border-radius: 9px;
+        }
+
+        .foto figcaption {
+            opacity: 1;
+
+            transform: translateY(0);
+
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+    }
+
+
+    /* =========================
+    CELULAR PEQUENO
+    ========================= */
+
+    @media (max-width: 380px) {
+
+        .galeria {
+            grid-template-columns: 1fr;
+        }
+
+        .foto {
+            height: 220px;
+        }
+
+    }
+
+    </style>
+</head>
+
+<body>
+
+   <section class="galeria">
+
+    <figure class="foto">
+        <a href="o,s de instalacao/shaft de logica.jpeg" target="_blank">
+            <img src="o,s de instalacao/shaft de logica.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - shaft de lógica</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/sala de reuniao otcs.jpeg" target="_blank">
+            <img src="o,s de instalacao/sala de reuniao otcs.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - sala de reunião da otics</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/sala de atendimento.jpeg" target="_blank">
+            <img src="o,s de instalacao/sala de atendimento.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - sala de atendimento</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/rh.jpeg" target="_blank">
+            <img src="o,s de instalacao/rh.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - RH</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/reuniao da coordenacao.jpeg" target="_blank">
+            <img src="o,s de instalacao/reuniao da coordenacao.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 reunião da coordenação</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/recepcao circulacao 1.jpeg" target="_blank">
+            <img src="o,s de instalacao/recepcao circulacao 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - recepção circulação 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/recepcao circulacao 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/recepcao circulacao 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - recepção circulação 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/ouvidoria e demanda nova maquina.jpeg" target="_blank">
+            <img src="o,s de instalacao/ouvidoria e demanda nova maquina.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 ouvidoria e demanda - nova</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/ouvidoria e demanda desinstalacao.jpeg" target="_blank">
+            <img src="o,s de instalacao/ouvidoria e demanda desinstalacao.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - ouvidoria e demanda - desinstalação</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/ouvidoria e demanda 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/ouvidoria e demanda 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - ouvidoria e demanda 2 </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/ouvidoria e damanda.jpeg" target="_blank">
+            <img src="o,s de instalacao/ouvidoria e damanda.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - ouvidoria e demanda 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/nir.jpeg" target="_blank">
+            <img src="o,s de instalacao/nir.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - NIR</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/laboratorio de informatica.jpeg" target="_blank">
+            <img src="o,s de instalacao/laboratorio de informatica.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - laboratorio de informática 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/laboratorio de informatica 02.jpeg" target="_blank">
+            <img src="o,s de instalacao/laboratorio de informatica 02.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - laboratorio de informática</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dvs daps 1.jpeg" target="_blank">
+            <img src="o,s de instalacao/dvs daps 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - dvs 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dvs 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/dvs 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - dvs 2 </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dvs 3.jpeg" target="_blank">
+            <img src="o,s de instalacao/dvs 3.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - dvs 3 </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dil 1.jpeg" target="_blank">
+            <img src="o,s de instalacao/dil 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - dil 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dil 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/dil 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - dil 2</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dil02.jpeg" target="_blank">
+            <img src="o,s de instalacao/dil02.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - dil 3</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/dil.jpeg" target="_blank">
+            <img src="o,s de instalacao/dil.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 dil</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/corredor do dvs.jpeg" target="_blank">
+            <img src="o,s de instalacao/corredor do dvs.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - corredor do dvs</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/corredor circulacao 3.jpeg" target="_blank">
+            <img src="o,s de instalacao/corredor circulacao 3.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>corredor da circulação</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/copa.jpeg" target="_blank">
+            <img src="o,s de instalacao/copa.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - copa </figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/coordenacao geral.jpeg" target="_blank">
+            <img src="o,s de instalacao/coordenacao geral.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - corredor geral</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/cga.jpeg" target="_blank">
+            <img src="o,s de instalacao/cga.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - CGA</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/centro de estudo.jpeg" target="_blank">
+            <img src="o,s de instalacao/centro de estudo.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - centro de estudo</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/auditorio otics 4.jpeg" target="_blank">
+            <img src="o,s de instalacao/auditorio otics 4.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>auditório da otics 4</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/auditorio da cap.jpeg" target="_blank">
+            <img src="o,s de instalacao/auditorio da cap.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - auditório da cap 1</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/auditorio da cap 02.jpeg" target="_blank">
+            <img src="o,s de instalacao/auditorio da cap 02.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 auditório da cap 2</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/auditirio otics 3.jpeg" target="_blank">
+            <img src="o,s de instalacao/auditirio otics 3.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 auditório da otics 3</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/auditorio da cap 03.jpeg" target="_blank">
+            <img src="o,s de instalacao/auditorio da cap 03.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - auditório da cap 3</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/auditorio da cap 04.jpeg" target="_blank">
+            <img src="o,s de instalacao/auditorio da cap 04.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - auditório da cap 4</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/apoio coordenacao 1.jpeg" target="_blank">
+            <img src="o,s de instalacao/apoio coordenacao 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - apoio da coordenação 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/apoio cordenacao 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/apoio cordenacao 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cap3.3 - apoio da coodernação 2</figcaption>
+    </figure>
+
+     
+    
+    <br>
+
+    <p style="color: red;"> abaixo somente CEDTEA</p>
+
+    <br>
+    
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala terapeuta ocupacional.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala terapeuta ocupacional.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea sala do tarapeuta ocupacional</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala de reunião.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala de reunião.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea sala de reunião</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala de movimento desinstalação.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala de movimento desinstalação.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption style="color: red;">cedtea - sala de movimento desinstalação</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala de estimulação 1.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala de estimulação 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - sala de estiulação 1</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala de estimulação 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala de estimulação 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - sala de estimulação 2</figcaption>
+    </figure>
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala de aprendizagem.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala de aprendizagem.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - sala de aprendizagem</figcaption>
+
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea sala de movimento desinstalação.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea sala de movimento desinstalação.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - sala de movimento</figcaption>
+    </figure>
+    
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea recepção.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea recepção.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - recepção</figcaption>
+    </figure>
+    
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea neurologia.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea neurologia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - neurologia</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea ginasio terapia.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea ginasio terapia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - ginásio terapia 1 </figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea ginasio terapia 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/apoio cordenacao 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption> cedtea - ginásioterapia 2 </figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea espera so tubulaçao.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea espera so tubulaçao.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption style="color: red;">cedtea - espera - somente tubulação</figcaption>
+    </figure>
+    
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea espera 1.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea espera 1.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - espera 1</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea cozinha terapeutica.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea cozinha terapeutica.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - cozinha terapêutica</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea copa.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea copa.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - copa </figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea consultorio.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio 5.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea consultorio 5.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório 5</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio 4.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea consultorio 4.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório 4</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio 5 - 02.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea consultorio 5 - 02.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório 5 - 02</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio 3.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea consultorio 3.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório 3</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio 2.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea consultorio 2.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório 2</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea consultorio 1.jpeg" target="_blank">
+            <img src="candido/consultorio 1 - 0968.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - consultório 1</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea almoxarifado.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea almoxarifado.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - almoxarifado</figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="o,s de instalacao/cedtea atendimento em grupo.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea atendimento em grupo.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - atendimento em grupo</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea administração.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea administração.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - administração</figcaption>
+    </figure>
+
+
+     <figure class="foto">
+        <a href="o,s de instalacao/cedtea aconchego.jpeg" target="_blank">
+            <img src="o,s de instalacao/cedtea aconchego.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>cedtea - sala do aconchego</figcaption>
+    </figure>
+
+    <br>
+    
+   <p style="color: red;">abaixo somente Herculano pinheiro</p>
+    
+     <figure class="foto">
+        <a href="o,s de instalacao/herculano  imunização .jpeg" target="_blank">
+            <img src="o,s de instalacao/herculano  imunização .jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>Herculano - imunização</figcaption>
+    </figure>
+    
+
+     <figure class="foto">
+        <a href="o,s de instalacao/herculano imunização desinstalação.jpeg" target="_blank">
+            <img src="o,s de instalacao/herculano imunização desinstalação.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption style="color: red;">Herculano - imunização - desinstalação</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/herculano auditorio .jpeg" target="_blank">
+            <img src="o,s de instalacao/herculano auditorio .jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>Herculano - auditório</figcaption>
+    </figure>
+
+     <figure class="foto">
+        <a href="o,s de instalacao/herculano auditorio desinstalação.jpeg" target="_blank">
+            <img src="o,s de instalacao/herculano imunização desinstalação.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption style="color: red;">Herculano - auditório desinstalação</figcaption>
+    </figure>
+
+
+
+     
+
+</section>
+
+</body>
+</html>
