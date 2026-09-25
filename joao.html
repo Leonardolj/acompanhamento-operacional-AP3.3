@@ -267,15 +267,66 @@
 
     }
 
+    /* =========================
+BARRA DE PESQUISA
+========================= */
+
+.pesquisa-container {
+    width: 92%;
+    max-width: 1400px;
+    margin: 0 auto 25px;
+}
+
+#pesquisa {
+    width: 100%;
+    padding: 15px 20px;
+
+    font-size: 16px;
+    color: #1e293b;
+
+    background: #ffffff;
+
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+
+    outline: none;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    transition: 
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#pesquisa:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+#pesquisa::placeholder {
+    color: #94a3b8;
+}
+
     </style>
 </head>
 
 <body>
     <h1>JOÃO E MARCOS</h1><br>
      <p>ROTA (4) TOTAL DE APARELHOS: 239</p><br>
- <p>higienização mês de setembro total:15 </p>
+ <p>higienização mês de setembro total:19 </p>
  <BR>
  
+     <div class="pesquisa-container">
+    <input 
+        type="text" 
+        id="pesquisa" 
+        placeholder="🔍 Pesquisar por QR Code, unidade ou local..."
+        autocomplete="off"
+    >
+</div>
+
    <section class="galeria">
 
 
@@ -368,14 +419,68 @@
     </figure>
 
      <figure class="foto">
-        <a href="pastahigienizacao/fazenda 1887 curativo.jpeg" target="_blank">
-            <img src="pastahigienizacao/fazenda 1887 curativo.jpeg" alt="Foto do equipamento">
+        <a href="pastahigienizacao2/mario piraes 1415 acolhimento mae bebe.jpeg" target="_blank">
+            <img src="pastahigienizacao2/mario piraes 1415 acolhimento mae bebe.jpeg" alt="Foto do equipamento">
         </a>
-        <figcaption>qrcode: 1887 - curativos - fazenda botafogo </figcaption>
+        <figcaption>qrcode: 1415 - acolhimento mãe-bebê - mario pires </figcaption>
     </figure>
+
+    <figure class="foto">
+        <a href="pastahigienizacao2/mario pires - - comendador pinto.jpeg" target="_blank">
+            <img src="pastahigienizacao2/mario pires - - comendador pinto.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: xxxx - comendador pinto - mario pires </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="pastahigienizacao2/mario pires 1402 - ultrassonografia.jpeg" target="_blank">
+            <img src="pastahigienizacao2/mario pires 1402 - ultrassonografia.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1402 - ultrassonografia - mário pires </figcaption>
+    </figure>
+
+    <figure class="foto">
+        <a href="pastahigienizacao2/mario pires 1408 acolhimento.jpeg" target="_blank">
+            <img src="pastahigienizacao2/mario pires 1408 acolhimento.jpeg" alt="Foto do equipamento">
+        </a>
+        <figcaption>qrcode: 1408 - acolhimento - mário pires </figcaption>
+    </figure>
+
+  
+
+    
 
 
    </section>
 
 </body>
+
+<script>
+    const pesquisa = document.getElementById("pesquisa");
+    const fotos = document.querySelectorAll(".foto");
+
+    pesquisa.addEventListener("input", function () {
+
+        const termo = this.value
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+        fotos.forEach(function (foto) {
+
+            const texto = foto.textContent
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "");
+
+            if (texto.includes(termo)) {
+                foto.style.display = "";
+            } else {
+                foto.style.display = "none";
+            }
+
+        });
+
+    });
+</script>
 </html>
