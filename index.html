@@ -723,54 +723,92 @@
     </small>
 
 </a>
-    </div>
 
-    <div style="border: 2px solid var(--primary); padding: 20px; margin-top: 20px;">
-        <ul>
-             <h1>unidades</h1>
-             <li><a href="unidades/mariaazevedo.html"><p>MARIA DE AZEVEDO</p></a></li>
-             <li><a href="unidades/edima.html"><p>EDMA VALADÃO</p></a></li>
-             <li><a href="unidades/souza.html"><p>SOUZA MARQUÊS</p></a></li>
-             <li><a href="unidades/cap.html"><p>CAP3.3</p></a></li>
-             <li><a href="unidades/aderson.html"><p>ADERSON FERNANDES</p></a></li>
-             <li><a href="unidades/edima.html"><p>HERCULANO PINHEIRO</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>CARLOS NERYS</p></a></li>
-             <li><a href="unidades/edima.html"><p>MARIO OLINTO</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>CLEMENTINO FRAGA</p></a></li>
-             <li><a href="unidades/edima.html"><p>EPITACIO SOARES</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>PORTUS E QUITANDA</p></a></li>
-             <li><a href="unidades/edima.html"><p>SYLVIO BRAUNER</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>ANA MARIA </p></a></li>
-             <li><a href="unidades/edima.html"><p>DEPUTADO PEDRO FERNANES</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>CARMELA DUTRA</p></a></li>
-             <li><a href="unidades/edima.html"><p>ENGENHEIRO SANITARISTA</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>DANTE ROMANÓ</p></a></li>
-             <li><a href="unidades/edima.html"><p>AUGUSTO DO AMARAL</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>CARLOS CRUZ</p></a></li>
-             <li><a href="unidades/edima.html"><p>JOSUETE SANTANA</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>CYPRIANO DAS CHAGAS</p></a></li>
-             <li><a href="unidades/edima.html"><p>FLÁVIO DO COUTO</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>MARIA DE AZEVEDO </p></a></li>
-             <li><a href="unidades/edima.html"><p>MAESTRO CELESTINO</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>NASCIMENTO GURGEL</p></a></li>
-             <li><a href="unidades/edima.html"><p>FAZENDA BOTAFOGO</p></a></li>
-             <li><a href="unidades/cedtea.html"><p>RAIMUNDO ALVES</p></a></li>
-             <li><a href="unidades/edima.html"><p>MARIO PIRES</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>ALICE TOLEDO</p></a></li>
-             <li><a href="unidades/edima.html"><p>DISTRITAL</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>MESTRE MOLEQUINHO</p></a></li>
-             <li><a href="unidades/edima.html"><p>ADOLFO FERREIRA</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>BASE SPDM</p></a></li>
-             <li><a href="unidades/edima.html"><p>MARCOS VALADÃO</p></a></li>
-             <li><a href="unidades/mariaazevedo.html"><p>IVANIR DE MELLO</p></a></li>
-             <li><a href="candido.html"><p>CÂNDIDO RIBEIRO</p></a></li>
-             <li><a href="manoel.html"><p>MANOEL FERNANDES</p></a></li>
-             <li><a href="unidades/edima.html"><p>AMAURY BOTTANY</p></a></li>
-             <li><a href="unidades/edima.html"><p>IAPC</p></a></li>
-             
-        </ul>
+<div style="border: 2px solid var(--primary); padding: 20px; margin-top: 20px;">
 
-    </div>
+    <h1>Unidades</h1>
+
+    <!-- Barra de pesquisa -->
+    <input 
+        type="text" 
+        id="pesquisaUnidade" 
+        placeholder="🔍 Pesquisar unidade..."
+        onkeyup="pesquisarUnidades()"
+        style="
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        "
+    >
+
+    <ul id="listaUnidades">
+
+        <li><a href="unidades/mariaazevedo.html">MARIA DE AZEVEDO</a></li>
+        <li><a href="unidades/edima.html">EDMA VALADÃO</a></li>
+        <li><a href="unidades/souza.html">SOUZA MARQUÊS</a></li>
+        <li><a href="unidades/cap.html">CAP3.3</a></li>
+        <li><a href="unidades/aderson.html">ADERSON FERNANDES</a></li>
+        <li><a href="unidades/edima.html">HERCULANO PINHEIRO</a></li>
+        <li><a href="unidades/mariaazevedo.html">CARLOS NERYS</a></li>
+        <li><a href="unidades/edima.html">MARIO OLINTO</a></li>
+        <li><a href="unidades/mariaazevedo.html">CLEMENTINO FRAGA</a></li>
+        <li><a href="unidades/edima.html">EPITACIO SOARES</a></li>
+        <li><a href="unidades/mariaazevedo.html">PORTUS E QUITANDA</a></li>
+        <li><a href="unidades/edima.html">SYLVIO BRAUNER</a></li>
+        <li><a href="unidades/mariaazevedo.html">ANA MARIA</a></li>
+        <li><a href="unidades/edima.html">DEPUTADO PEDRO FERNANES</a></li>
+        <li><a href="unidades/mariaazevedo.html">CARMELA DUTRA</a></li>
+        <li><a href="unidades/edima.html">ENGENHEIRO SANITARISTA</a></li>
+        <li><a href="unidades/mariaazevedo.html">DANTE ROMANÓ</a></li>
+        <li><a href="unidades/edima.html">AUGUSTO DO AMARAL</a></li>
+        <li><a href="unidades/mariaazevedo.html">CARLOS CRUZ</a></li>
+        <li><a href="unidades/edima.html">JOSUETE SANTANA</a></li>
+        <li><a href="unidades/mariaazevedo.html">CYPRIANO DAS CHAGAS</a></li>
+        <li><a href="unidades/edima.html">FLÁVIO DO COUTO</a></li>
+        <li><a href="unidades/mariaazevedo.html">MARIA DE AZEVEDO</a></li>
+        <li><a href="unidades/edima.html">MAESTRO CELESTINO</a></li>
+        <li><a href="unidades/mariaazevedo.html">NASCIMENTO GURGEL</a></li>
+        <li><a href="unidades/edima.html">FAZENDA BOTAFOGO</a></li>
+        <li><a href="unidades/cedtea.html">RAIMUNDO ALVES</a></li>
+        <li><a href="unidades/edima.html">MARIO PIRES</a></li>
+        <li><a href="unidades/mariaazevedo.html">ALICE TOLEDO</a></li>
+        <li><a href="unidades/edima.html">DISTRITAL</a></li>
+        <li><a href="unidades/mariaazevedo.html">MESTRE MOLEQUINHO</a></li>
+        <li><a href="unidades/edima.html">ADOLFO FERREIRA</a></li>
+        <li><a href="unidades/mariaazevedo.html">BASE SPDM</a></li>
+        <li><a href="unidades/edima.html">MARCOS VALADÃO</a></li>
+        <li><a href="unidades/mariaazevedo.html">IVANIR DE MELLO</a></li>
+        <li><a href="candido.html">CÂNDIDO RIBEIRO</a></li>
+        <li><a href="manoel.html">MANOEL FERNANDES</a></li>
+        <li><a href="unidades/edima.html">AMAURY BOTTANY</a></li>
+        <li><a href="unidades/edima.html">IAPC</a></li>
+
+    </ul>
+</div>
+
+<script>
+function pesquisarUnidades() {
+    const input = document.getElementById("pesquisaUnidade");
+    const filtro = input.value.toLowerCase();
+    const lista = document.getElementById("listaUnidades");
+    const unidades = lista.getElementsByTagName("li");
+
+    for (let i = 0; i < unidades.length; i++) {
+        const nome = unidades[i].textContent.toLowerCase();
+
+        if (nome.includes(filtro)) {
+            unidades[i].style.display = "";
+        } else {
+            unidades[i].style.display = "none";
+        }
+    }
+}
+</script>
+
     <br>
 
     <div class="economia" style="border: 2px solid var(--primary); padding: 20px;">
