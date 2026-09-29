@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Remanejamento de Equipamentos</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    color: #1f2937;
+}
+
+/* CABEÇALHO */
+header {
+    background: linear-gradient(135deg, #0b3d91, #1565c0);
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+header p {
+    opacity: .9;
+}
+
+/* CONTAINER */
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 25px auto;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    border-left: 5px solid #1565c0;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.card strong {
+    font-size: 24px;
+    color: #0b3d91;
+}
+
+/* CALCULADORA */
+.calculadora {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    margin-bottom: 25px;
+}
+
+.calculadora h2 {
+    margin-bottom: 20px;
+    color: #0b3d91;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd3dd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border-color: #1565c0;
+}
+
+/* RESULTADO */
+.resultado {
+    margin-top: 22px;
+    background: #e8f1ff;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    border: 1px solid #b9d3f5;
+}
+
+.resultado span {
+    display: block;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.resultado strong {
+    font-size: 35px;
+    color: #0b3d91;
+}
+
+/* TABELA */
+.tabela-container {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+    overflow-x: auto;
+}
+
+.tabela-container h2 {
+    color: #0b3d91;
+    margin-bottom: 15px;
+}
+
+#pesquisa {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+thead {
+    background: #0b3d91;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 13px;
+}
+
+th {
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background: #f5f7fa;
+}
+
+tbody tr:hover {
+    background: #e8f1ff;
+}
+
+/* OBSERVAÇÕES */
+.observacoes {
+    margin-top: 25px;
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.observacoes h2 {
+    color: #0b3d91;
+    margin-bottom: 12px;
+}
+
+.observacoes p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .resultado strong {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Remanejamento de Equipamentos</h1>
+    <p>Ar-condicionado — Valores por tipo, capacidade e linha frigorígena</p>
+</header>
+
+<div class="container">
+
+    <!-- RESUMO -->
+    <div class="cards">
+
+        <div class="card">
+            <h3>Tipos de equipamento</h3>
+            <strong>5</strong>
+        </div>
+
+        <div class="card">
+            <h3>Faixas de capacidade</h3>
+            <strong>6</strong>
+        </div>
+
+        <div class="card">
+            <h3>Maior distância</h3>
+            <strong>+20 m</strong>
+        </div>
+
+        <div class="card">
+            <h3>Desconto padrão</h3>
+            <strong>10%</strong>
+        </div>
+
+    </div>
+
+
+    <!-- CALCULADORA -->
+    <section class="calculadora">
+
+        <h2>Calculadora de Remanejamento</h2>
+
+        <div class="formulario">
+
+            <div class="campo">
+                <label>Tipo de equipamento</label>
+
+                <select id="tipo">
+                    <option value="">Selecione</option>
+                    <option value="hiwall">Split Hi-Wall</option>
+                    <option value="piso">Split Piso Teto</option>
+                    <option value="acj">ACJ</option>
+                    <option value="cortina">Cortina de Ar</option>
+                    <option value="cassete">Cassete / Portátil</option>
+                </select>
+            </div>
+
+
+            <div class="campo">
+                <label>Capacidade</label>
+
+                <select id="capacidade">
+                    <option value="">Selecione primeiro o tipo</option>
+                </select>
+            </div>
+
+
+            <div class="campo">
+                <label>Linha frigorígena</label>
+
+                <select id="distancia">
+                    <option value="">Selecione</option>
+                    <option value="0">0 m a 5 m</option>
+                    <option value="1">5,1 m a 10 m</option>
+                    <option value="2">10,1 m a 15 m</option>
+                    <option value="3">15,1 m a 20 m</option>
+                    <option value="4">Acima de 20 m</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="resultado">
+
+            <span>Valor do remanejamento</span>
+
+            <strong id="valor">
+                R$ 0,00
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- TABELA -->
+    <section class="tabela-container">
+
+        <h2>Tabela de Valores</h2>
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="🔎 Pesquisar equipamento ou capacidade..."
+        >
+
+        <table id="tabela">
+
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Capacidade</th>
+                    <th>0 a 5 m</th>
+                    <th>5,1 a 10 m</th>
+                    <th>10,1 a 15 m</th>
+                    <th>15,1 a 20 m</th>
+                    <th>Acima de 20 m</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Split Hi-Wall</td>
+                    <td>Até 10.000</td>
+                    <td>R$ 2.700,00</td>
+                    <td>R$ 3.150,00</td>
+                    <td>R$ 4.230,00</td>
+                    <td>R$ 5.310,00</td>
+                    <td>R$ 6.390,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Hi-Wall</td>
+                    <td>10.001 a 11.999</td>
+                    <td>R$ 2.790,00</td>
+                    <td>R$ 3.240,00</td>
+                    <td>R$ 4.370,00</td>
+                    <td>R$ 5.400,00</td>
+                    <td>R$ 6.420,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Hi-Wall</td>
+                    <td>12.000 a 19.999</td>
+                    <td>R$ 2.850,00</td>
+                    <td>R$ 3.330,00</td>
+                    <td>R$ 4.410,00</td>
+                    <td>R$ 5.490,00</td>
+                    <td>R$ 6.570,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Hi-Wall</td>
+                    <td>20.000 a 27.999</td>
+                    <td>R$ 2.970,00</td>
+                    <td>R$ 3.420,00</td>
+                    <td>R$ 4.590,00</td>
+                    <td>R$ 5.580,00</td>
+                    <td>R$ 6.680,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Hi-Wall</td>
+                    <td>28.000 a 32.000</td>
+                    <td>R$ 3.060,00</td>
+                    <td>R$ 3.510,00</td>
+                    <td>R$ 4.530,00</td>
+                    <td>R$ 5.670,00</td>
+                    <td>R$ 6.720,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Hi-Wall</td>
+                    <td>Acima de 32.001</td>
+                    <td>R$ 3.150,00</td>
+                    <td>R$ 3.600,00</td>
+                    <td>R$ 4.680,00</td>
+                    <td>R$ 5.760,00</td>
+                    <td>R$ 6.840,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Piso Teto</td>
+                    <td>20.000 a 27.999</td>
+                    <td>R$ 1.280,00</td>
+                    <td>R$ 3.140,00</td>
+                    <td>R$ 4.350,00</td>
+                    <td>R$ 5.670,00</td>
+                    <td>R$ 6.850,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Piso Teto</td>
+                    <td>28.000 a 35.999</td>
+                    <td>R$ 3.150,00</td>
+                    <td>R$ 3.810,00</td>
+                    <td>R$ 5.220,00</td>
+                    <td>R$ 6.300,00</td>
+                    <td>R$ 6.430,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Piso Teto</td>
+                    <td>35.000 a 43.999</td>
+                    <td>R$ 3.780,00</td>
+                    <td>R$ 4.230,00</td>
+                    <td>R$ 5.830,00</td>
+                    <td>R$ 6.590,00</td>
+                    <td>R$ 7.110,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Piso Teto</td>
+                    <td>44.000 a 54.999</td>
+                    <td>R$ 4.410,00</td>
+                    <td>R$ 4.860,00</td>
+                    <td>R$ 6.450,00</td>
+                    <td>R$ 7.360,00</td>
+                    <td>R$ 7.740,00</td>
+                </tr>
+
+                <tr>
+                    <td>Split Piso Teto</td>
+                    <td>55.000 a 60.000</td>
+                    <td>R$ 5.040,00</td>
+                    <td>R$ 5.450,00</td>
+                    <td>R$ 7.110,00</td>
+                    <td>R$ 8.150,00</td>
+                    <td>R$ 8.370,00</td>
+                </tr>
+
+                <tr>
+                    <td>Cortina de Ar</td>
+                    <td>48.000</td>
+                    <td>R$ 3.980,00</td>
+                    <td>R$ 4.850,00</td>
+                    <td>R$ 6.450,00</td>
+                    <td>R$ 7.360,00</td>
+                    <td>R$ 7.740,00</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- OBSERVAÇÕES -->
+    <section class="observacoes">
+
+        <h2>Observações</h2>
+
+        <p>
+            Para equipamentos do tipo <strong>Split Hi-Wall,
+            Split Piso Teto, Cortina de Ar, Cassete e Portátil</strong>,
+            o desconto informado no documento é de <strong>10%</strong>
+            em relação ao valor atual praticado.
+        </p>
+
+        <p>
+            Para equipamentos do tipo <strong>ACJ</strong>,
+            o documento informa desconto de aproximadamente
+            <strong>77%</strong> em relação ao valor atual praticado.
+        </p>
+
+    </section>
+
+</div>
+
+
+<script>
+
+/* ===============================
+   BANCO DE DADOS
+================================ */
+
+const dados = {
+
+    hiwall: {
+        nome: "Split Hi-Wall",
+
+        capacidades: [
+            {
+                nome: "Até 10.000",
+                valores: [2700, 3150, 4230, 5310, 6390]
+            },
+
+            {
+                nome: "10.001 a 11.999",
+                valores: [2790, 3240, 4370, 5400, 6420]
+            },
+
+            {
+                nome: "12.000 a 19.999",
+                valores: [2850, 3330, 4410, 5490, 6570]
+            },
+
+            {
+                nome: "20.000 a 27.999",
+                valores: [2970, 3420, 4590, 5580, 6680]
+            },
+
+            {
+                nome: "28.000 a 32.000",
+                valores: [3060, 3510, 4530, 5670, 6720]
+            },
+
+            {
+                nome: "Acima de 32.001",
+                valores: [3150, 3600, 4680, 5760, 6840]
+            }
+        ]
+    },
+
+
+    piso: {
+        nome: "Split Piso Teto",
+
+        capacidades: [
+
+            {
+                nome: "20.000 a 27.999",
+                valores: [1280, 3140, 4350, 5670, 6850]
+            },
+
+            {
+                nome: "28.000 a 35.999",
+                valores: [3150, 3810, 5220, 6300, 6430]
+            },
+
+            {
+                nome: "35.000 a 43.999",
+                valores: [3780, 4230, 5830, 6590, 7110]
+            },
+
+            {
+                nome: "44.000 a 54.999",
+                valores: [4410, 4860, 6450, 7360, 7740]
+            },
+
+            {
+                nome: "55.000 a 60.000",
+                valores: [5040, 5450, 7110, 8150, 8370]
+            }
+
+        ]
+    },
+
+
+    acj: {
+
+        nome: "ACJ",
+
+        capacidades: [
+            { nome: "Até 10.000", valores: [0,0,0,0,162.70] },
+            { nome: "10.001 a 11.999", valores: [0,0,0,0,162.70] },
+            { nome: "12.000 a 19.999", valores: [0,0,0,0,162.70] },
+            { nome: "20.000 a 27.999", valores: [0,0,0,0,162.70] },
+            { nome: "28.000 a 32.000", valores: [0,0,0,0,162.70] },
+            { nome: "Acima de 32.001", valores: [0,0,0,0,162.70] }
+        ]
+
+    },
+
+
+    cortina: {
+
+        nome: "Cortina de Ar",
+
+        capacidades: [
+            {
+                nome: "48.000",
+                valores: [3980,4850,6450,7360,7740]
+            }
+        ]
+
+    },
+
+
+    cassete: {
+
+        nome: "Cassete / Portátil",
+
+        capacidades: [
+            {
+                nome: "48.000",
+                valores: [3980,4850,6450,7360,7740]
+            }
+        ]
+
+    }
+
+};
+
+
+/* ===============================
+   ELEMENTOS
+================================ */
+
+const tipo = document.getElementById("tipo");
+const capacidade = document.getElementById("capacidade");
+const distancia = document.getElementById("distancia");
+const valor = document.getElementById("valor");
+
+
+/* ===============================
+   ALTERAÇÃO DO TIPO
+================================ */
+
+tipo.addEventListener("change", function() {
+
+    capacidade.innerHTML =
+        '<option value="">Selecione a capacidade</option>';
+
+    const selecionado = dados[this.value];
+
+    if (!selecionado) {
+        atualizarValor();
+        return;
+    }
+
+    selecionado.capacidades.forEach((item, index) => {
+
+        const option = document.createElement("option");
+
+        option.value = index;
+        option.textContent = item.nome;
+
+        capacidade.appendChild(option);
+
+    });
+
+    atualizarValor();
+});
+
+
+/* ===============================
+   ATUALIZAR VALOR
+================================ */
+
+capacidade.addEventListener("change", atualizarValor);
+distancia.addEventListener("change", atualizarValor);
+
+
+function atualizarValor() {
+
+    const tipoSelecionado = tipo.value;
+    const capacidadeSelecionada = capacidade.value;
+    const distanciaSelecionada = distancia.value;
+
+    if (
+        !tipoSelecionado ||
+        capacidadeSelecionada === "" ||
+        distanciaSelecionada === ""
+    ) {
+
+        valor.textContent = "R$ 0,00";
+
+        return;
+    }
+
+
+    const equipamento = dados[tipoSelecionado];
+
+    const item =
+        equipamento.capacidades[capacidadeSelecionada];
+
+
+    const preco =
+        item.valores[distanciaSelecionada];
+
+
+    valor.textContent =
+        preco.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+
+}
+
+
+/* ===============================
+   PESQUISA NA TABELA
+================================ */
+
+document.getElementById("pesquisa")
+.addEventListener("keyup", function() {
+
+    const texto =
+        this.value.toLowerCase();
+
+    const linhas =
+        document.querySelectorAll("#tabela tbody tr");
+
+    linhas.forEach(function(linha) {
+
+        const conteudo =
+            linha.textContent.toLowerCase();
+
+        linha.style.display =
+            conteudo.includes(texto)
+            ? ""
+            : "none";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
