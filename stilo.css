@@ -871,3 +871,40 @@ footer {
     color: var(--primary);
     font-weight: 600;
 }
+
+
+
+
+
+
+/* BARRA DE PESQUISA pagina do index */
+
+.search-container {
+    width: 100%;
+    margin: 20px 0 30px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.search-container input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.search-container input::placeholder {
+    color: #888;
+}

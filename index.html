@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    
 
 <header class="header">
     <div class="header-content">
@@ -21,7 +22,7 @@
             <h1>GESTÃO TERRITORIAL AP3.3</h1>
             <p>Acompanhamento Operacional</p>
         </div>
-
+        
         <div class="date-card">
             <span>ANO</span>
             <strong></strong>
@@ -40,7 +41,15 @@
     </div>
 </header>
 
-
+<!-- BARRA DE PESQUISA -->
+<div class="search-container">
+    <input
+        type="text"
+        id="pesquisaGeral"
+        placeholder="🔍 Pesquisar na página..."
+        onkeyup="pesquisarPagina()"
+    >
+</div>
 
 <main class="container">
 
@@ -961,61 +970,30 @@ function pesquisarUnidades() {
 
 </body>
 <script>
+function pesquisarPagina() {
 
-function verificarSenhaEconomia() {
+    const pesquisa = document
+        .getElementById("pesquisaGeral")
+        .value
+        .toLowerCase()
+        .trim();
 
-    const senha = document.getElementById("senhaEconomia").value;
+    // Elementos que serão pesquisados
+    const elementos = document.querySelectorAll(
+        ".card, .system-card, .team, .vehicle, .economia, .planilha, .action, #listaUnidades li"
+    );
 
-    // ALTERE A SENHA AQUI
-    const senhaCorreta = "31032017";
+    elementos.forEach(function(elemento) {
 
-    if (senha === senhaCorreta) {
+        const texto = elemento.textContent.toLowerCase();
 
-        document.getElementById("loginEconomia").style.display = "none";
+        if (texto.includes(pesquisa)) {
+            elemento.style.display = "";
+        } else {
+            elemento.style.display = "none";
+        }
 
-        document.getElementById("conteudoEconomia").style.display = "block";
-
-    } else {
-
-        document.getElementById("erroEconomia").textContent =
-            "Senha incorreta, quer saber os valores neh? peça a senha  ao leonardo!";
-
-    }
-
+    });
 }
-
-
-
-function unlockSection() {
-
-    const password = document.getElementById("section-password").value;
-    const overlay = document.getElementById("password-overlay");
-    const content = document.getElementById("protected-content");
-    const error = document.getElementById("password-error");
-
-    // ALTERE A SENHA AQUI
-    const correctPassword = "1234";
-
-    if (password === correctPassword) {
-
-        overlay.style.display = "none";
-        content.style.display = "block";
-        error.style.display = "none";
-
-    } else {
-
-        error.style.display = "block";
-
-    }
-}
-
-document.getElementById("section-password").addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-        unlockSection();
-    }
-
-});
-
 </script>
 </html>
