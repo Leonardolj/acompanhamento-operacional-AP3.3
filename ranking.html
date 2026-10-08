@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ranking de Produção - Higienização</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at top, #1e3a8a 0%, #0f172a 45%, #020617 100%);
+
+            color: white;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cabecalho h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 15px rgba(255,255,255,.3);
+        }
+
+        .cabecalho p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        /* =========================
+           PÓDIO
+        ========================= */
+
+        .podio {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            gap: 15px;
+
+            min-height: 430px;
+
+            margin-bottom: 40px;
+        }
+
+        .coluna-podio {
+            width: 30%;
+            max-width: 260px;
+
+            text-align: center;
+
+            animation: subir .8s ease forwards;
+        }
+
+        .coluna-podio.primeiro {
+            order: 2;
+        }
+
+        .coluna-podio.segundo {
+            order: 1;
+        }
+
+        .coluna-podio.terceiro {
+            order: 3;
+        }
+
+        .pessoa {
+            background: rgba(255,255,255,.10);
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 20px 20px 0 0;
+
+            padding: 20px 10px;
+
+            position: relative;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.3);
+        }
+
+        .primeiro .pessoa {
+            min-height: 280px;
+
+            border: 2px solid #facc15;
+
+            box-shadow:
+                0 0 25px rgba(250,204,21,.35),
+                0 20px 50px rgba(0,0,0,.4);
+        }
+
+        .segundo .pessoa {
+            min-height: 220px;
+        }
+
+        .terceiro .pessoa {
+            min-height: 190px;
+        }
+
+        /* =========================
+           MEDALHA
+        ========================= */
+
+        .medalha {
+            font-size: 60px;
+
+            margin-bottom: 10px;
+
+            animation:
+                flutuar 2s ease-in-out infinite;
+        }
+
+        .primeiro .medalha {
+            font-size: 80px;
+
+            animation:
+                campeao 1.5s ease-in-out infinite;
+        }
+
+        .nome {
+            font-size: 21px;
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+        .rota {
+            color: #cbd5e1;
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .total {
+            font-size: 42px;
+            font-weight: 900;
+
+            color: #facc15;
+        }
+
+        .texto-producao {
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        /* =========================
+           BASE DO PÓDIO
+        ========================= */
+
+        .base {
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+            font-weight: bold;
+
+            border-radius: 0 0 15px 15px;
+        }
+
+        .primeiro .base {
+            background: linear-gradient(
+                135deg,
+                #facc15,
+                #ca8a04
+            );
+
+            color: #422006;
+        }
+
+        .segundo .base {
+            background: linear-gradient(
+                135deg,
+                #e5e7eb,
+                #64748b
+            );
+
+            color: #1e293b;
+        }
+
+        .terceiro .base {
+            background: linear-gradient(
+                135deg,
+                #fb923c,
+                #9a3412
+            );
+
+            color: white;
+        }
+
+        /* =========================
+           CAMPEÃO
+        ========================= */
+
+        .campeao {
+            position: absolute;
+
+            top: -18px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: #ef4444;
+
+            color: white;
+
+            padding: 6px 15px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+
+            animation:
+                piscar 1s infinite alternate;
+        }
+
+        /* =========================
+           RANKING
+        ========================= */
+
+        .ranking {
+            background: rgba(255,255,255,.08);
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .ranking h2 {
+            margin-bottom: 20px;
+
+            font-size: 24px;
+        }
+
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .linha {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 8px;
+
+            font-size: 15px;
+        }
+
+        .barra {
+            width: 100%;
+            height: 15px;
+
+            background: rgba(255,255,255,.10);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .progresso {
+            height: 100%;
+
+            width: 0;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #22c55e
+                );
+
+            transition:
+                width 1.5s ease;
+        }
+
+        .item:first-child .progresso {
+            background:
+                linear-gradient(
+                    90deg,
+                    #facc15,
+                    #f97316
+                );
+
+            box-shadow:
+                0 0 12px rgba(250,204,21,.6);
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================= */
+
+        @keyframes subir {
+
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes flutuar {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+        @keyframes campeao {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+        }
+
+        @keyframes piscar {
+
+            from {
+                box-shadow:
+                    0 0 5px #ef4444;
+            }
+
+            to {
+                box-shadow:
+                    0 0 20px #ef4444;
+            }
+
+        }
+
+        /* =========================
+           CONFETES
+        ========================= */
+
+        .confete {
+            position: fixed;
+
+            width: 8px;
+            height: 15px;
+
+            top: -20px;
+
+            animation:
+                cair linear forwards;
+
+            z-index: 100;
+        }
+
+        @keyframes cair {
+
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media(max-width:700px) {
+
+            body {
+                padding: 20px 10px;
+            }
+
+            .cabecalho h1 {
+                font-size: 28px;
+            }
+
+            .podio {
+                min-height: auto;
+
+                align-items: stretch;
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+            .coluna-podio {
+                width: 100%;
+                max-width: none;
+            }
+
+            .coluna-podio.primeiro,
+            .coluna-podio.segundo,
+            .coluna-podio.terceiro {
+                order: initial;
+            }
+
+            .primeiro .pessoa,
+            .segundo .pessoa,
+            .terceiro .pessoa {
+                min-height: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="cabecalho">
+
+        <h1>🏆 RANKING DE PRODUÇÃO</h1>
+
+        <p>
+            Higienização — Setembro + Outubro / 2026
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         PÓDIO
+    ========================= -->
+
+    <section class="podio">
+
+        <!-- CAMPEÃO -->
+
+        <div class="coluna-podio primeiro">
+
+            <div class="pessoa">
+
+                <div class="campeao">
+                    🔥 CAMPEÃO DE PRODUÇÃO
+                </div>
+
+                <div class="medalha">
+                    🥇
+                </div>
+
+                <div class="nome">
+                    Ewerton e Sérgio
+                </div>
+
+                <div class="rota">
+                    Rota 2
+                </div>
+
+                <div class="total">
+                    31
+                </div>
+
+                <div class="texto-producao">
+                    higienizações
+                </div>
+
+            </div>
+
+            <div class="base">
+                1º LUGAR
+            </div>
+
+        </div>
+
+
+        <!-- SEGUNDO -->
+
+        <div class="coluna-podio segundo">
+
+            <div class="pessoa">
+
+                <div class="medalha">
+                    🥈
+                </div>
+
+                <div class="nome">
+                    Jonathan, Danilo e Humberto
+                </div>
+
+                <div class="rota">
+                    Rota 6
+                </div>
+
+                <div class="total">
+                    30
+                </div>
+
+                <div class="texto-producao">
+                    higienizações
+                </div>
+
+            </div>
+
+            <div class="base">
+                2º LUGAR
+            </div>
+
+        </div>
+
+
+        <!-- TERCEIRO -->
+
+        <div class="coluna-podio terceiro">
+
+            <div class="pessoa">
+
+                <div class="medalha">
+                    🥉
+                </div>
+
+                <div class="nome">
+                    João e Marcos
+                </div>
+
+                <div class="rota">
+                    Rota 4
+                </div>
+
+                <div class="total">
+                    27
+                </div>
+
+                <div class="texto-producao">
+                    higienizações
+                </div>
+
+            </div>
+
+            <div class="base">
+                3º LUGAR
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RANKING COMPLETO
+    ========================= -->
+
+    <section class="ranking">
+
+        <h2>
+            📊 Produção por equipe
+        </h2>
+
+
+        <div class="item">
+
+            <div class="linha">
+                <span>🥇 Ewerton e Sérgio — Rota 2</span>
+                <strong>31</strong>
+            </div>
+
+            <div class="barra">
+                <div
+                    class="progresso"
+                    data-valor="31">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="linha">
+                <span>🥈 Jonathan, Danilo e Humberto — Rota 6</span>
+                <strong>30</strong>
+            </div>
+
+            <div class="barra">
+                <div
+                    class="progresso"
+                    data-valor="30">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="linha">
+                <span>🥉 João e Marcos — Rota 4</span>
+                <strong>27</strong>
+            </div>
+
+            <div class="barra">
+                <div
+                    class="progresso"
+                    data-valor="27">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="linha">
+                <span>Máx e Leandro — Rota 1</span>
+                <strong>25</strong>
+            </div>
+
+            <div class="barra">
+                <div
+                    class="progresso"
+                    data-valor="25">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="linha">
+                <span>Caio e Washington — Rota 3</span>
+                <strong>23</strong>
+            </div>
+
+            <div class="barra">
+                <div
+                    class="progresso"
+                    data-valor="23">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       ANIMAÇÃO DAS BARRAS
+    ========================= */
+
+    window.addEventListener("load", function () {
+
+        const barras =
+            document.querySelectorAll(".progresso");
+
+        const maior = 31;
+
+        barras.forEach(function (barra) {
+
+            const valor =
+                Number(barra.dataset.valor);
+
+            const porcentagem =
+                (valor / maior) * 100;
+
+            setTimeout(function () {
+
+                barra.style.width =
+                    porcentagem + "%";
+
+            }, 300);
+
+        });
+
+    });
+
+
+    /* =========================
+       CONFETES DO CAMPEÃO
+    ========================= */
+
+    function criarConfete() {
+
+        const cores = [
+            "#facc15",
+            "#22c55e",
+            "#3b82f6",
+            "#ef4444",
+            "#f97316",
+            "#a855f7",
+            "#ec4899"
+        ];
+
+        const confete =
+            document.createElement("div");
+
+        confete.className = "confete";
+
+        confete.style.left =
+            Math.random() * 100 + "vw";
+
+        confete.style.background =
+            cores[
+                Math.floor(
+                    Math.random() * cores.length
+                )
+            ];
+
+        confete.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        confete.style.transform =
+            "rotate(" +
+            Math.random() * 360 +
+            "deg)";
+
+        document.body.appendChild(confete);
+
+        setTimeout(function () {
+
+            confete.remove();
+
+        }, 5000);
+
+    }
+
+
+    /* Cria confetes durante alguns segundos */
+
+    let quantidade = 0;
+
+    const intervalo =
+        setInterval(function () {
+
+            criarConfete();
+
+            quantidade++;
+
+            if (quantidade >= 80) {
+
+                clearInterval(intervalo);
+
+            }
+
+        }, 80);
+
+
+</script>
+
+</body>
+
+</html>
